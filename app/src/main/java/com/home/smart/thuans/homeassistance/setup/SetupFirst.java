@@ -26,6 +26,8 @@ public class SetupFirst extends AppCompatActivity {
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
+                Log.d("Set up 1: ",Locale.getDefault().getDisplayLanguage());
+
                 if(status != TextToSpeech.ERROR) {
                     tts.setLanguage(new Locale("vi","VN"));
                 }

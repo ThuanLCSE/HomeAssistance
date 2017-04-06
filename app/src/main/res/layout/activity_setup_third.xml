@@ -45,16 +45,12 @@
 
             <Button
                 android:id="@+id/btnSetup3Done"
-                android:layout_width="181dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tiếp" />
         </LinearLayout>
 
     </LinearLayout>
-    <fragment android:name="com.home.smart.thuans.homeassistance.device.RenameFragment"
-        android:id="@+id/rename_fragment"
-        android:layout_weight="1"
-        android:layout_width="200dp"
-        android:layout_height="300dp" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -1,7 +1,5 @@
 package com.home.smart.thuans.homeassistance.setup;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.home.smart.thuans.homeassistance.HomeActivity;
 import com.home.smart.thuans.homeassistance.R;
 import com.home.smart.thuans.homeassistance.device.DeviceItem;
 import com.home.smart.thuans.homeassistance.device.DeviceListAdapter;
-import com.home.smart.thuans.homeassistance.device.RenameFragment;
+import com.home.smart.thuans.homeassistance.device.RenameDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,19 +47,30 @@ public class SetupThird extends AppCompatActivity {
         ListView listDevice= (ListView)findViewById(R.id.lstDevice);
         listDevice.setAdapter(adapter);
 
-        FragmentManager fragmentManager = getFragmentManager();
-        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        RenameFragment renameFragment = new RenameFragment();
-        fragmentTransaction.replace(android.R.id.content, renameFragment);
+//        FragmentManager fragmentManager = getFragmentManager();
+//        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        RenameFragment renameFragment = new RenameFragment();
+//        fragmentTransaction.replace(android.R.id.content, renameFragment);
 
         Button btnRename = (Button) findViewById(R.id.btnRenameDevice);
 
         btnRename.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentTransaction.commit();
+//                fragmentTransaction.commit();
+                RenameDialog renameDialog=new RenameDialog(SetupThird.this);
+                renameDialog.show();
+
             }
         });
+        Button btnDone = (Button) findViewById(R.id.btnSetup3Done);
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SetupThird.this, HomeActivity.class));
+            }
+        });
+
     }
 
 }
