@@ -16,6 +16,7 @@ public class HouseModeModel {
     }
 
     public int getIcon() {
+        System.out.println("ahiahii");
         return icon;
     }
 
