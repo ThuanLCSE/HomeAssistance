@@ -5,7 +5,7 @@ package com.home.smart.thuans.homeassistance.mode;
  */
 
 public class HouseModeModel {
-    private int icon;
+    private int iconID;
     private String name;
 
     public HouseModeModel(int ic, String name) {
@@ -15,11 +15,11 @@ public class HouseModeModel {
     }
 
     public int getIcon() {
-        return icon;
+        return iconID;
     }
 
     public void setIcon(int icon) {
-        this.icon = icon;
+        this.iconID = icon;
     }
 
     public String getName() {
