@@ -29,14 +29,14 @@ public class RenameDialog extends Dialog {
     public Dialog d;
     public Button yes, no;
     public EditText dname;
-    public DeviceItem deviceItem;
+    public DeviceModel deviceItem;
     public ListView lw;
-    public List<DeviceItem> ItemList;
+    public List<DeviceModel> ItemList;
     public int ItemPos;
 
     private boolean flag = false;
 
-    public RenameDialog(Activity context, DeviceItem deviceItem , List<DeviceItem> ItemList, int pos, ListView lw) {
+    public RenameDialog(Activity context, DeviceModel deviceItem , List<DeviceModel> ItemList, int pos, ListView lw) {
         super(context);
         this.c = context;
         this.deviceItem = deviceItem;
@@ -51,7 +51,7 @@ public class RenameDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.rename_device_dialog);
         dname = (EditText) findViewById(R.id.editText);
-        dname.setText(deviceItem.name);
+        dname.setText(deviceItem.getName());
         yes = (Button) findViewById(R.id.btn_yes);
         no = (Button) findViewById(R.id.btn_no);
 
@@ -61,7 +61,7 @@ public class RenameDialog extends Dialog {
                 flag = true;
                 Toast toast = Toast.makeText(c, "Update Successful", Toast.LENGTH_LONG);
                 toast.show();
-                ItemList.get(ItemPos).name = ((EditText) findViewById(R.id.editText)).getText().toString();
+                ItemList.get(ItemPos).setName(((EditText) findViewById(R.id.editText)).getText().toString());
                 DeviceListAdapter adapter = new DeviceListAdapter(c, R.layout.device_list , ItemList);
                 lw.setAdapter(adapter);
                 dismiss();

@@ -16,4 +16,6 @@
     <string name="device_change_name">Bạn muốn đặt tên thiết bị này là</string>
     <string name="btn_yes">Đồng ý</string>
     <string name="btn_cancel">Hủy</string>
+    <string name="username">Tên tài khoản</string>
+    <string name="password">Mật khẩu</string>
 </resources>

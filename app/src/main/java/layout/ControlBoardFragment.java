@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,25 +17,44 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.home.smart.thuans.homeassistance.R;
+import com.home.smart.thuans.homeassistance.device.SensorListAdapter;
+import com.home.smart.thuans.homeassistance.device.SensorModel;
+import com.home.smart.thuans.homeassistance.utils.DeviceConstant;
 import com.home.smart.thuans.homeassistance.utils.HouseControlCenter;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ControlBoardFragment extends Fragment {
     private RequestQueue queue;
     private TextView responseText;
-    private String hostArduino = "http://192.168.8.150:8080/";
+    private List<SensorModel> sensorModelList;
+    private ListView listSensor;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_control_board,container,false);
         Button btnUpdate = (Button) rootView.findViewById(R.id.btnUpdateHouseStatus);
         responseText = (TextView) rootView.findViewById(R.id.responseText);
+        //init list sensor
+        sensorModelList = new ArrayList<SensorModel>();
+        SensorModel sm = new SensorModel("Cửa chính", "close", DeviceConstant.SENSOR_DOOR,1);
+        sensorModelList.add(sm);
 
+        listSensor = (ListView)rootView.findViewById(R.id.lstSensorStatus);
+
+        SensorListAdapter sensorAdapter = new SensorListAdapter(this.getContext(), R.layout.sensor_list , sensorModelList);
+        listSensor.setAdapter(sensorAdapter);
+
+        final RequestQueue queue = HouseControlCenter.getInstance(this.getContext()).
+                getRequestQueue();
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = hostArduino;
-// Request a string response from the provided URL.
+                String url = HouseControlCenter.CENTER_ADDRESS;
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>(){
                     @Override
@@ -47,32 +67,23 @@ public class ControlBoardFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         responseText.setText("That didn't work!"+ error.getMessage());
+                        setState(responseText.toString());
                     }
                 });
 
-                // Add the request to the RequestQueue.
                 queue.add(stringRequest);
             }
         });
 
-// Instantiate the RequestQueue.
-        HouseControlCenter controlUtil = new HouseControlCenter(rootView.getContext());
-        queue = controlUtil.getQueue();
+
         return rootView;
     }
     private void setState(String dataResponse){
         String split = "<br/>";
         String[] data = dataResponse.split(split);
-//        if (data[1] != null ){
-//            if (data[1].contains("on")){
-//                lightStt.setBackgroundColor(Color.GREEN);
-//            } else
-//            if (data[1].contains("off")){
-//                lightStt.setBackgroundColor(Color.RED);
-//            }
-//        }
-//        if (data[2] != null ){
-//            tempStt.setText(data[2].substring(20));
-//        }
+
+        sensorModelList.get(0).setValue("đóng");
+        SensorListAdapter sensorAdapter = new SensorListAdapter(this.getContext(), R.layout.sensor_list , sensorModelList);
+        listSensor.setAdapter(sensorAdapter);
     }
 }

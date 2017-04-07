@@ -36,7 +36,13 @@ public class SensorListAdapter  extends ArrayAdapter<SensorModel> {
         this.context = context;
         this.sensorModelList= sensorList;
     }
+    public int getCount() {
+        return this.sensorModelList.size();
+    }
 
+    public SensorModel getItem(int index) {
+        return this.sensorModelList.get(index);
+    }
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

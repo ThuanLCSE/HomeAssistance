@@ -12,8 +12,8 @@ import android.widget.ListView;
 import com.home.smart.thuans.homeassistance.HomeActivity;
 import com.home.smart.thuans.homeassistance.MainActivity;
 import com.home.smart.thuans.homeassistance.R;
-import com.home.smart.thuans.homeassistance.device.DeviceItem;
 import com.home.smart.thuans.homeassistance.device.DeviceListAdapter;
+import com.home.smart.thuans.homeassistance.device.DeviceModel;
 import com.home.smart.thuans.homeassistance.device.RenameDialog;
 
 import org.w3c.dom.Text;
@@ -38,14 +38,14 @@ public class SetupThird extends AppCompatActivity {
             R.drawable.temp,
             R.drawable.light
     };
-    List<DeviceItem> deviceItemList = new ArrayList<>();
+    List<DeviceModel> deviceItemList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_third);
 
         for (int i = 0 ; i< itemname.length ; i ++){
-            this.deviceItemList.add(new DeviceItem(itemIcon[i],itemname[i]));
+            this.deviceItemList.add(new DeviceModel(itemIcon[i],itemname[i]));
         }
         DeviceListAdapter adapter = new DeviceListAdapter(this, R.layout.device_list , deviceItemList);
 
@@ -53,7 +53,7 @@ public class SetupThird extends AppCompatActivity {
         listDevice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DeviceItem item = (DeviceItem) parent.getItemAtPosition(position);
+                DeviceModel item = (DeviceModel) parent.getItemAtPosition(position);
                 RenameDialog adb = new RenameDialog(
                         SetupThird.this, item, deviceItemList, position, listDevice);
                 adb.setTitle("List");

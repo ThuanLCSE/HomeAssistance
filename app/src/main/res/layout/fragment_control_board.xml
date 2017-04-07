@@ -16,12 +16,16 @@
             android:layout_weight="0.10"
             android:text="Cập nhật trạng thái" />
 
+        <ListView
+            android:id="@+id/lstSensorStatus"
+            android:layout_width="match_parent"
+            android:layout_height="177dp" />
+
         <TextView
             android:id="@+id/responseText"
             android:layout_width="match_parent"
-            android:layout_height="141dp"
-            android:text="TextView"
-            android:layout_weight="0.58" />
+            android:layout_height="82dp"
+            android:text="TextView" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.10"
                 android:text="10 off" />
+
         </LinearLayout>
     </LinearLayout>
 

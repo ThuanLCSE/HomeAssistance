@@ -21,11 +21,11 @@ import java.util.List;
  * Created by Thuans on 3/30/2017.
  */
 
-public class DeviceListAdapter extends ArrayAdapter<DeviceItem>{
+public class DeviceListAdapter extends ArrayAdapter<DeviceModel>{
 
     private TextView deviceName;
     private ImageView deviceIcon;
-    private List<DeviceItem> deviceItemList = new ArrayList<DeviceItem>();
+    private List<DeviceModel> deviceItemList = new ArrayList<DeviceModel>();
     private Context context;
 
 
@@ -33,7 +33,7 @@ public class DeviceListAdapter extends ArrayAdapter<DeviceItem>{
         super(context, resource);
         this.context = context;
     }
-    public DeviceListAdapter(@NonNull Context context, @LayoutRes int resource, List<DeviceItem> listDevice) {
+    public DeviceListAdapter(@NonNull Context context, @LayoutRes int resource, List<DeviceModel> listDevice) {
         super(context, resource);
         this.context = context;
         this.deviceItemList = listDevice;
@@ -44,20 +44,20 @@ public class DeviceListAdapter extends ArrayAdapter<DeviceItem>{
         return this.deviceItemList.size();
     }
 
-    public DeviceItem getItem(int index) {
+    public DeviceModel getItem(int index) {
         return this.deviceItemList.get(index);
     }
     public View getView(int position, View convertView, ViewGroup parent) {
         Log.d("Device Item","Get view---------------");
-        DeviceItem device= getItem(position);
+        DeviceModel device= getItem(position);
         View row = convertView;
         LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         row = inflater.inflate(R.layout.device_list, parent, false);
         deviceIcon =  (ImageView) row.findViewById(R.id.deviceIcon);
-        deviceIcon.setImageResource(device.icon);
+        deviceIcon.setImageResource(device.getIcon());
         deviceName = (TextView) row.findViewById(R.id.deviceName);
-        deviceName.setText(device.name);
+        deviceName.setText(device.getName());
         return row;
     }
 

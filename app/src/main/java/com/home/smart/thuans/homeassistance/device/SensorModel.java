@@ -11,13 +11,15 @@ public class SensorModel {
 
     private int icon;
     private String name;
+    private int port;
     private String value;
     private String feature;
 
-    public SensorModel(int icon, String name, String value, String feature) {
-        this.icon = icon;
+    public SensorModel(String name, String value, String feature, int port) {
+
         this.name = name;
         this.value = value;
+        this.setPort(port);
         this.feature = feature;
         if (this.feature.equals(DeviceConstant.SENSOR_LIGHT)){
             this.icon = R.drawable.light;
@@ -49,5 +51,13 @@ public class SensorModel {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }

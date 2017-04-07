@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.home.smart.thuans.homeassistance.R;
-import com.home.smart.thuans.homeassistance.device.DeviceItem;
 
 import java.util.ArrayList;
 import java.util.List;
