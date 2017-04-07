@@ -1,17 +1,22 @@
 package com.home.smart.thuans.homeassistance.setup;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.home.smart.thuans.homeassistance.HomeActivity;
+import com.home.smart.thuans.homeassistance.MainActivity;
 import com.home.smart.thuans.homeassistance.R;
 import com.home.smart.thuans.homeassistance.device.DeviceItem;
 import com.home.smart.thuans.homeassistance.device.DeviceListAdapter;
 import com.home.smart.thuans.homeassistance.device.RenameDialog;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +49,17 @@ public class SetupThird extends AppCompatActivity {
         }
         DeviceListAdapter adapter = new DeviceListAdapter(this, R.layout.device_list , deviceItemList);
 
-        ListView listDevice= (ListView)findViewById(R.id.lstDevice);
+        final ListView listDevice = (ListView)findViewById(R.id.lstDevice);
+        listDevice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DeviceItem item = (DeviceItem) parent.getItemAtPosition(position);
+                RenameDialog adb = new RenameDialog(
+                        SetupThird.this, item, deviceItemList, position, listDevice);
+                adb.setTitle("List");
+                adb.show();
+            }
+        });
         listDevice.setAdapter(adapter);
 
 //        FragmentManager fragmentManager = getFragmentManager();
@@ -58,8 +73,8 @@ public class SetupThird extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                fragmentTransaction.commit();
-                RenameDialog renameDialog=new RenameDialog(SetupThird.this);
-                renameDialog.show();
+//                RenameDialog renameDialog=new RenameDialog(SetupThird.this, item, deviceItemList, position);
+//                renameDialog.show();
 
             }
         });
