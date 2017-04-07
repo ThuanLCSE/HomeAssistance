@@ -7,6 +7,7 @@ package com.home.smart.thuans.homeassistance.mode;
 public class HouseModeModel {
     private int icon;
     private String name;
+    private String priority;
 
     public HouseModeModel(int ic, String name) {
         super();
