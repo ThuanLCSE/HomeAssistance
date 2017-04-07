@@ -44,13 +44,13 @@ public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
         ChatMessage chatMessageObj = getItem(position);
         View row = convertView;
         LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (chatMessageObj.left) {
+        if (chatMessageObj.isLeft()) {
             row = inflater.inflate(R.layout.msg_left, parent, false);
         }else{
             row = inflater.inflate(R.layout.msg_right, parent, false);
         }
         chatText = (TextView) row.findViewById(R.id.msg);
-        chatText.setText(chatMessageObj.message);
+        chatText.setText(chatMessageObj.getMessage());
         return row;
     }
 }
