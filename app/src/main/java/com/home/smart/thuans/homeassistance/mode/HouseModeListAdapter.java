@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,8 @@ public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
 
             @Override
             public void onClick(View arg0) {
-                System.out.println(" selected :" + modeName.getText().toString());
+                EditModeDialog emDialog = new EditModeDialog(getContext());
+                emDialog.show();
             }
         });
         return rowView;
