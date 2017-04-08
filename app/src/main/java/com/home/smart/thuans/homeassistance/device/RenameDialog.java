@@ -59,7 +59,7 @@ public class RenameDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 flag = true;
-                Toast toast = Toast.makeText(c, "Update Successful", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(c, "Update Successful", Toast.LENGTH_SHORT);
                 toast.show();
                 ItemList.get(ItemPos).setName(((EditText) findViewById(R.id.editText)).getText().toString());
                 DeviceListAdapter adapter = new DeviceListAdapter(c, R.layout.device_list , ItemList);

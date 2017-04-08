@@ -6,15 +6,15 @@
 
     <ImageView
         android:id="@+id/modeImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="22dp"
         android:layout_marginStart="22dp"
         android:layout_marginTop="25dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <EditText
         android:id="@+id/modeName"
@@ -98,11 +98,11 @@
         android:id="@+id/btnDelMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="Hủy"
-        android:layout_below="@+id/checkBox5"
         android:layout_alignLeft="@+id/checkBox5"
-        android:layout_alignStart="@+id/checkBox5" />
+        android:layout_alignStart="@+id/checkBox5"
+        android:layout_below="@+id/checkBox5"
+        android:layout_marginTop="18dp"
+        android:text="Xóa" />
 
     <Button
         android:id="@+id/btnSaveMode"

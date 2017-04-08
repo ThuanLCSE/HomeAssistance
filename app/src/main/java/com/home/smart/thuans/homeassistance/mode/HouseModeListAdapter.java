@@ -24,11 +24,12 @@ import java.util.List;
 
 public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
 
-
     private TextView modeName;
     private ImageView modeIcon;
     private List<HouseModeModel> modeList = new ArrayList<HouseModeModel>();
     private Context context;
+    private View rowView;
+
     public HouseModeListAdapter(Context context) {
         super(context, R.layout.house_mode_list);
         this.context = context;
@@ -48,8 +49,8 @@ public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
     }
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View rowView = convertView;
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+          rowView = convertView;
 
         if (rowView == null) {
             LayoutInflater vi = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -67,7 +68,7 @@ public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
 
             @Override
             public void onClick(View arg0) {
-                EditModeDialog emDialog = new EditModeDialog(getContext());
+                EditModeDialog emDialog = new EditModeDialog(getContext(), modeList, position, rowView);
                 emDialog.show();
             }
         });

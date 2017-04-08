@@ -17,12 +17,10 @@
             android:layout_weight="0.10"
             android:text="Cập nhật trạng thái" />
 
-
-        <TextView
-            android:id="@+id/responseText"
+        <ListView
+            android:id="@+id/lstHouseStatus"
             android:layout_width="match_parent"
-            android:layout_height="82dp"
-            android:text="TextView" />
+            android:layout_height="139dp" />
 
         <TextView
             android:layout_width="match_parent"
