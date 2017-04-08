@@ -40,8 +40,13 @@ public class ControlBoardFragment extends Fragment {
         responseText = (TextView) rootView.findViewById(R.id.responseText);
         //init list sensor
         sensorModelList = new ArrayList<SensorModel>();
-        SensorModel sm = new SensorModel("Cửa chính", "close", DeviceConstant.SENSOR_DOOR,1);
+        SensorModel sm = new SensorModel("Cửa chính", "Đang tắt", DeviceConstant.SENSOR_DOOR,1);
+        SensorModel sm1 = new SensorModel("Đèn Phòng ngủ", "Đang bật", DeviceConstant.SENSOR_LIGHT,1);
+        SensorModel sm2 = new SensorModel("Máy lạnh", "Đang bật", DeviceConstant.SENSOR_TEMP,1);
+
         sensorModelList.add(sm);
+        sensorModelList.add(sm1);
+        sensorModelList.add(sm2);
 
         listSensor = (ListView)rootView.findViewById(R.id.lstSensorStatus);
 

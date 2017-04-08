@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="layout.ControlBoardFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="509dp"
@@ -16,10 +17,6 @@
             android:layout_weight="0.10"
             android:text="Cập nhật trạng thái" />
 
-        <ListView
-            android:id="@+id/lstSensorStatus"
-            android:layout_width="match_parent"
-            android:layout_height="177dp" />
 
         <TextView
             android:id="@+id/responseText"
@@ -27,28 +24,45 @@
             android:layout_height="82dp"
             android:text="TextView" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bảng điều khiển tay"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <ListView
+            android:id="@+id/lstSensorStatus"
+            android:layout_width="match_parent"
+            android:layout_height="177dp"
+            android:layout_weight="0.99" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/led13Btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.10"
                 android:text="13 off" />
+
             <Button
                 android:id="@+id/led12Btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.10"
                 android:text="12 off" />
+
             <Button
                 android:id="@+id/led11Btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.10"
                 android:text="11 off" />
+
             <Button
                 android:id="@+id/led10Btn"
                 android:layout_width="match_parent"
@@ -57,6 +71,7 @@
                 android:text="10 off" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 
