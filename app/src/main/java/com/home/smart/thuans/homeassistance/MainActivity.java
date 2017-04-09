@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         //xu ly db
+                        List<DeviceModel> houseDevice = HouseControlCenter.getInstance(MainActivity.this).
+                                getListDevice();
+
                         mDownloadDialog.dismiss();
                         startActivity(new Intent(MainActivity.this, SetupFirst.class));
                     }

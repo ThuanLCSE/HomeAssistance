@@ -38,12 +38,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnRenameDevice"
-                android:layout_width="217dp"
-                android:layout_height="wrap_content"
-                android:text="Đặt lại tên thiết bị" />
-
-            <Button
                 android:id="@+id/btnSetup3Done"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

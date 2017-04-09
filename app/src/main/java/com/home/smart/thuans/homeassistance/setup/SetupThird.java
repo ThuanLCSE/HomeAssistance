@@ -69,17 +69,6 @@ public class SetupThird extends AppCompatActivity {
 //        RenameFragment renameFragment = new RenameFragment();
 //        fragmentTransaction.replace(android.R.id.content, renameFragment);
 
-        Button btnRename = (Button) findViewById(R.id.btnRenameDevice);
-
-        btnRename.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                fragmentTransaction.commit();
-//                RenameDialog renameDialog=new RenameDialog(SetupThird.this, item, deviceItemList, position);
-//                renameDialog.show();
-
-            }
-        });
         Button btnDone = (Button) findViewById(R.id.btnSetup3Done);
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
