@@ -1,13 +1,18 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.HouseModeFragment">
+    tools:context="layout.HouseModeFragment"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/lstScheduleMode"
+        android:layout_width="wrap_content"
+        android:layout_height="288dp" />
 
     <ListView
         android:id="@+id/lstHouseMode"
-        android:layout_width="match_parent"
-        android:layout_height="377dp"
-        android:layout_weight="0.47" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-</FrameLayout>
+</LinearLayout>

@@ -52,7 +52,7 @@ public class SensorListAdapter  extends ArrayAdapter<SensorModel> {
             LayoutInflater li = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rowView = li.inflate(R.layout.sensor_list, null);
         }
-        sensorName = (TextView) rowView.findViewById(R.id.sensorName);
+        sensorName = (TextView) rowView.findViewById(R.id.modeName);
         sensorIcon= (ImageView) rowView.findViewById(R.id.sensorIcon);
         sensorValue= (TextView) rowView.findViewById(R.id.sensorValue);
 

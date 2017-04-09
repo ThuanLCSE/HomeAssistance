@@ -16,14 +16,18 @@ import android.widget.ListView;
 import com.home.smart.thuans.homeassistance.R;
 import com.home.smart.thuans.homeassistance.mode.HouseModeListAdapter;
 import com.home.smart.thuans.homeassistance.mode.HouseModeModel;
+import com.home.smart.thuans.homeassistance.mode.ScheduleModeListAdapter;
+import com.home.smart.thuans.homeassistance.mode.ScheduleModeModel;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HouseModeFragment extends Fragment {
     private static final String TAG = "HouseModeFragment";
-    private  ListView lw;
+    private ListView lw;
     private List<HouseModeModel> housemodeList = new ArrayList<HouseModeModel>();
+    private List<ScheduleModeModel> scheduleModeList = new ArrayList<ScheduleModeModel>();
     private String[] modeName ={
             "Đón khách",
             "Đi ngủ",
@@ -32,19 +36,42 @@ public class HouseModeFragment extends Fragment {
             "Xem phim"
     };
 
+    private String[] modeTime ={
+           "6:45",
+            "12:00",
+            "15:15",
+            "17:35",
+            "21:00"
+    };
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_house_mode,container,false);
 
+
+
         for (int i = 0 ; i< modeName.length ; i ++){
-            this.housemodeList.add(new HouseModeModel(R.drawable.light,modeName[i]));
+            HouseModeModel HMmodel = new HouseModeModel(R.drawable.light,modeName[i]);
+            ScheduleModeModel SMmodel = new ScheduleModeModel(HMmodel,modeTime[i]);
+            this.housemodeList.add(HMmodel);
+            this.scheduleModeList.add(SMmodel);
+
         }
 
+
+
         ListView listMode= (ListView) rootView.findViewById(R.id.lstHouseMode);
-        HouseModeListAdapter adapter = new HouseModeListAdapter(getActivity(), R.layout.house_mode_list, housemodeList);
+        HouseModeListAdapter adapter = new HouseModeListAdapter(this.getActivity(), R.layout.house_mode_list, housemodeList);
         adapter.setListView(listMode);
         listMode.setAdapter(adapter);
+
+        ListView listScheduleMode = (ListView) rootView.findViewById(R.id.lstScheduleMode);
+        ScheduleModeListAdapter scheduleAdapter = new ScheduleModeListAdapter(this.getActivity(), R.layout.mode_schedule_list, scheduleModeList);
+        listScheduleMode.setAdapter(scheduleAdapter);
+        Log.e(TAG, "onCreateView: Size " + scheduleAdapter.getCount());
 
         return rootView;
     }

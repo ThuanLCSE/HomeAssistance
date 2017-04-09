@@ -1,10 +1,12 @@
 package com.home.smart.thuans.homeassistance.mode;
 
+import java.io.Serializable;
+
 /**
  * Created by Thuans on 4/6/2017.
  */
 
-public class HouseModeModel {
+public class HouseModeModel implements Serializable{
     private int icon;
     private String name;
 
