@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SetupThird extends AppCompatActivity {
+    private static final String TAG = "SetupThird";
     String[] itemname ={
             "Đèn chùm phòng ngủ",
             "Đèn phòng khách",
@@ -82,6 +84,7 @@ public class SetupThird extends AppCompatActivity {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "Done onClick: ");
                 startActivity(new Intent(SetupThird.this, HomeActivity.class));
             }
         });

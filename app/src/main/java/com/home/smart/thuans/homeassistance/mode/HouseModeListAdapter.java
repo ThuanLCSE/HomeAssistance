@@ -26,7 +26,7 @@ import java.util.zip.Inflater;
  */
 
 public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
-
+    private static final String TAG = "HouseModeListAdapter";
     private TextView modeName;
     private ImageView modeIcon;
     private List<HouseModeModel> modeList = new ArrayList<HouseModeModel>();

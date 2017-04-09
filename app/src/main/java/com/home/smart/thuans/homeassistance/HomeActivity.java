@@ -19,7 +19,7 @@ import layout.ControlBoardFragment;
 import layout.HouseModeFragment;
 
 public class HomeActivity extends AppCompatActivity {
-
+    private static final String TAG = "HomeActivity";
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HouseModeFragment extends Fragment {
+    private static final String TAG = "HouseModeFragment";
     private  ListView lw;
     private List<HouseModeModel> housemodeList = new ArrayList<HouseModeModel>();
     private String[] modeName ={

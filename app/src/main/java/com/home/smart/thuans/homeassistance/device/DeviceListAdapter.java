@@ -22,7 +22,7 @@ import java.util.List;
  */
 
 public class DeviceListAdapter extends ArrayAdapter<DeviceModel>{
-
+    private static final String TAG = "DeviceListAdapter";
     private TextView deviceName;
     private ImageView deviceIcon;
     private List<DeviceModel> deviceItemList = new ArrayList<DeviceModel>();

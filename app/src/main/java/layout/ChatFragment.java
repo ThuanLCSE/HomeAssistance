@@ -19,6 +19,7 @@ import com.home.smart.thuans.homeassistance.chat.ChatArrayAdapter;
 import com.home.smart.thuans.homeassistance.chat.ChatMessage;
 
 public class ChatFragment extends Fragment {
+    private static final String TAG = "ChatFragment";
     private Button buttonSend;
     private ListView listView;
     private ChatArrayAdapter chatArrayAdapter;

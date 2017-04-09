@@ -33,6 +33,7 @@ import java.net.URL;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     ProgressDialog mDownloadDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

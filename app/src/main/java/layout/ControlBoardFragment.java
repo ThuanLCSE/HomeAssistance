@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ControlBoardFragment extends Fragment {
+    private static final String TAG = "ControlBoardFragment";
     private RequestQueue queue;
     private TextView responseText;
     private List<SensorModel> sensorModelList;

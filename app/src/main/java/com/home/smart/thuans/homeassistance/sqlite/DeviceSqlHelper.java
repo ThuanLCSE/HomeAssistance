@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 public class DeviceSqlHelper extends SQLiteOpenHelper{
+    private static final String TAG = "DeviceSqlHelper";
     private final String idCol = "id";
     private final String portCol = "port";
     private final String nameCol = "name";

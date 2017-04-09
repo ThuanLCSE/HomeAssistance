@@ -25,6 +25,7 @@ import java.util.List;
  */
 
 public class RenameDialog extends Dialog {
+    private static final String TAG = "RenameDialog";
     public Activity c;
     public Dialog d;
     public Button yes, no;
@@ -58,6 +59,7 @@ public class RenameDialog extends Dialog {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: ");
                 flag = true;
                 Toast toast = Toast.makeText(c, "Update Successful", Toast.LENGTH_SHORT);
                 toast.show();

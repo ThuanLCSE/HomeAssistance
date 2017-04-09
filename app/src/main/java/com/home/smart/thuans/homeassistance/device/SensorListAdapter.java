@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 public class SensorListAdapter  extends ArrayAdapter<SensorModel> {
-
+    private static final String TAG = "SensorListAdapter";
     private TextView sensorName;
     private ImageView sensorIcon;
     private TextView sensorValue;

@@ -20,7 +20,7 @@ import java.util.List;
  */
 
 public class HouseStatusListAdapter extends ArrayAdapter<HouseStatusModel>{
-
+    private static final String TAG = "HouseStatusListAdapter";
     private TextView statusName;
     private TextView statusValue;
     private List<HouseStatusModel> statuslist = new ArrayList<HouseStatusModel>();

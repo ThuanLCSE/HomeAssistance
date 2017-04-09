@@ -1,6 +1,7 @@
 package com.home.smart.thuans.homeassistance.chat;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import java.util.List;
  */
 
 public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
+    private static final String TAG = "ChatArrayAdapter";
 
     private TextView chatText;
     private List<ChatMessage> chatMessageList = new ArrayList<ChatMessage>();
@@ -25,6 +27,7 @@ public class ChatArrayAdapter extends ArrayAdapter<ChatMessage> {
     public void add(ChatMessage object) {
         chatMessageList.add(object);
         super.add(object);
+
     }
 
     public ChatArrayAdapter(Context context, int textViewResourceId) {

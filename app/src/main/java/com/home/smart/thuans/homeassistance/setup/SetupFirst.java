@@ -16,6 +16,7 @@ import com.home.smart.thuans.homeassistance.R;
 import java.util.Locale;
 
 public class SetupFirst extends AppCompatActivity {
+    private static final String TAG = "SetupFirst";
     private TextToSpeech tts;
     private String botName;
     @Override

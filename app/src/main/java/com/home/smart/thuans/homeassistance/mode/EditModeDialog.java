@@ -22,7 +22,6 @@ import com.home.smart.thuans.homeassistance.R;
 
 import java.util.List;
 
-import layout.HouseModeFragment;
 
 
 /**
@@ -30,6 +29,7 @@ import layout.HouseModeFragment;
  */
 
 public class EditModeDialog extends Dialog {
+    private static final String TAG = "EditModeDialog";
     public Button save;
     public Button del;
     public View view;
@@ -66,7 +66,7 @@ public class EditModeDialog extends Dialog {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.d(TAG, "Save onClick: ");
                 // update itemList -> get adapter -> set listview again -> update listview in fragement
                 itemList.get(itemPos).setName(((EditText) findViewById(R.id.modeName)).getText().toString());
                 HouseModeListAdapter adapter = new HouseModeListAdapter(context, R.layout.house_mode_list, itemList);
@@ -83,7 +83,7 @@ public class EditModeDialog extends Dialog {
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.d(TAG, "Del onClick: ");
                 // remove item in List -> get adapter -> set listview again -> update listview in fragement
 
                 itemList.remove(itemPos);
