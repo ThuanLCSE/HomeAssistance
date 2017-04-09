@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HouseModeFragment extends Fragment {
+    private  ListView lw;
     private List<HouseModeModel> housemodeList = new ArrayList<HouseModeModel>();
     private String[] modeName ={
             "Đón khách",
@@ -29,28 +30,6 @@ public class HouseModeFragment extends Fragment {
             "Ăn tối",
             "Xem phim"
     };
-    public ListView lw;
-    public Context c;
-
-
-
-    public List<HouseModeModel> gethousemodeList(){
-        return housemodeList;
-    }
-
-    public String[] getmodeNameList() {
-        return modeName;
-    }
-
-    public void setmodeNameList(String[] modeName) {
-        this.modeName = modeName;
-        for (int i = 0; i < modeName.length; i++ ) {
-            Log.d("HouseModelF", "ModeListLen " + modeName[i]);
-        }
-
-    }
-
-
 
     @Nullable
     @Override
@@ -60,12 +39,11 @@ public class HouseModeFragment extends Fragment {
         for (int i = 0 ; i< modeName.length ; i ++){
             this.housemodeList.add(new HouseModeModel(R.drawable.light,modeName[i]));
         }
-        HouseModeListAdapter adapter = new HouseModeListAdapter(this.getContext(), R.layout.house_mode_list, housemodeList);
-        ListView listMode= (ListView) rootView.findViewById(R.id.lstHouseMode);
-        c = this.getContext();
-        lw = listMode;
-        listMode.setAdapter(adapter);
 
+        ListView listMode= (ListView) rootView.findViewById(R.id.lstHouseMode);
+        HouseModeListAdapter adapter = new HouseModeListAdapter(getActivity(), R.layout.house_mode_list, housemodeList);
+        adapter.setListView(listMode);
+        listMode.setAdapter(adapter);
 
         return rootView;
     }

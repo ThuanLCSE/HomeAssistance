@@ -1,13 +1,18 @@
 package com.home.smart.thuans.homeassistance.mode;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,13 +37,18 @@ public class EditModeDialog extends Dialog {
     public int itemPos;
     public TextView modeName;
     public ImageView modeIcon;
+    public Activity context;
+    public ListView lw;
 
 
-    public EditModeDialog(Context context, List<HouseModeModel> itemList, int position, View view) {
+    public EditModeDialog(Activity context, List<HouseModeModel> itemList, int position,
+                          View view, ListView lw) {
         super(context);
+        this.context = context;
         this.itemList = itemList;
         this.itemPos = position;
         this.view = view;
+        this.lw = lw;
     }
 
     @Override
@@ -56,17 +66,14 @@ public class EditModeDialog extends Dialog {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HouseModeFragment hmf = new HouseModeFragment();
-                String[] modeList = hmf.getmodeNameList();
-                for (int i = 0; i < modeList.length; i++ ) {
-                    if (modeList[i].equals(itemList.get(itemPos).getName())){
-                        modeList[i] = modeName.getText().toString();
-                        hmf.setmodeNameList(modeList);
-                        break;
-                    };
-                }
-//                HouseModeListAdapter adapter = new HouseModeListAdapter(hmf.getContext(), R.layout.house_mode_list, hmf.gethousemodeList());
-//                hmf.lw.setAdapter(adapter);
+
+                // update itemList -> get adapter -> set listview again -> update listview in fragement
+                itemList.get(itemPos).setName(((EditText) findViewById(R.id.modeName)).getText().toString());
+                HouseModeListAdapter adapter = new HouseModeListAdapter(context, R.layout.house_mode_list, itemList);
+                adapter.setListView(lw);
+                lw.setAdapter(adapter);
+
+
                 Toast toast = Toast.makeText(getContext(), "Chế độ được cập nhật", Toast.LENGTH_SHORT);
                 toast.show();
                 dismiss();
@@ -76,6 +83,17 @@ public class EditModeDialog extends Dialog {
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // remove item in List -> get adapter -> set listview again -> update listview in fragement
+
+                itemList.remove(itemPos);
+
+                HouseModeListAdapter adapter = new HouseModeListAdapter(context, R.layout.house_mode_list, itemList);
+                adapter.setListView(lw);
+                lw.setAdapter(adapter);
+
+                Toast toast = Toast.makeText(getContext(), "Chế độ được cập nhật", Toast.LENGTH_SHORT);
+                toast.show();
                 dismiss();
             }
         });

@@ -1,5 +1,6 @@
 package com.home.smart.thuans.homeassistance.mode;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -11,12 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.home.smart.thuans.homeassistance.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 /**
  * Created by Thuans on 4/7/2017.
@@ -27,18 +30,24 @@ public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
     private TextView modeName;
     private ImageView modeIcon;
     private List<HouseModeModel> modeList = new ArrayList<HouseModeModel>();
-    private Context context;
+    private Activity context;
     private View rowView;
+    private  ListView lw;
 
-    public HouseModeListAdapter(Context context) {
-        super(context, R.layout.house_mode_list);
-        this.context = context;
+    public void setListView(ListView lw) {
+        this.lw = lw;
     }
-    public  HouseModeListAdapter(@NonNull Context context, @LayoutRes int resource, List<HouseModeModel> modeList) {
+
+    public void setModeList(List<HouseModeModel> modeList ) {
+        this.modeList = modeList;
+    }
+
+    public  HouseModeListAdapter(@NonNull Activity context, @LayoutRes int resource, List<HouseModeModel> modeList) {
         super(context, resource);
         this.context = context;
         this.modeList = modeList;
     }
+
 
     public int getCount() {
         return modeList.size();
@@ -68,7 +77,7 @@ public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
 
             @Override
             public void onClick(View arg0) {
-                EditModeDialog emDialog = new EditModeDialog(getContext(), modeList, position, rowView);
+                EditModeDialog emDialog = new EditModeDialog(context, modeList, position, rowView, lw);
                 emDialog.show();
             }
         });
