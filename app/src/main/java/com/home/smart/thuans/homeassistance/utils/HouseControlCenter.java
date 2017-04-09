@@ -5,6 +5,9 @@ import android.content.Context;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.home.smart.thuans.homeassistance.device.DeviceModel;
+
+import java.util.List;
 
 /**
  * Created by Thuans on 4/6/2017.
@@ -16,7 +19,7 @@ public class HouseControlCenter {
     private static Context context;
     public static final String CENTER_ADDRESS = "http://192.168.8.150:8080/";
     public static final String LOGIN_API = "http://192.168.8.1:8080/mobilelogin";
-
+    private List<DeviceModel> listDevice;
 
     private HouseControlCenter(Context context) {
         this.context = context;
@@ -24,8 +27,6 @@ public class HouseControlCenter {
     }
     public RequestQueue getRequestQueue() {
         if (queue == null) {
-            // getApplicationContext() is key, it keeps you from leaking the
-            // Activity or BroadcastReceiver if someone passes one in.
             queue = Volley.newRequestQueue(context.getApplicationContext());
         }
         return queue;
@@ -38,5 +39,13 @@ public class HouseControlCenter {
     }
     public <T> void addToRequestQueue(Request<T> req) {
         getRequestQueue().add(req);
+    }
+
+    public List<DeviceModel> getListDevice() {
+        return listDevice;
+    }
+
+    public void setListDevice(List<DeviceModel> listDevice) {
+        this.listDevice = listDevice;
     }
 }
