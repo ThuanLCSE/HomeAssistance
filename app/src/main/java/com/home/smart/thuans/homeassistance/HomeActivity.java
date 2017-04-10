@@ -1,5 +1,6 @@
 package com.home.smart.thuans.homeassistance;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,8 @@ import layout.ControlBoardFragment;
 import layout.HouseModeFragment;
 
 public class HomeActivity extends AppCompatActivity {
+    private static int Flags = -1;
+    private ChatFragment chatFragment;
     private static final String TAG = "HomeActivity";
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -40,6 +44,17 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+//        if (getIntent().getIntExtra("noti",0) == 111111) {
+//            int noti = savedInstanceState.getInt("noti");
+//            Log.d("HomeActivity", "onCreateView: " + noti);
+//            if (noti == 111111) {
+//                Log.d("HomeActivity", "onCreateView: Noti");
+//
+//            }
+//        }
+
+
+
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -53,10 +68,34 @@ public class HomeActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-
+        onNewIntent(getIntent());
 
     }
 
+    @Override
+    public void onNewIntent(Intent intent){
+        Bundle extras = intent.getExtras();
+        if(extras != null){
+            Flags = intent.getExtras().getInt("noti");
+            Log.d("aaaa", "FLAGSL " + Flags);
+            chatFragment = ChatFragment.getInstance();
+            chatFragment.setFlag(111111);
+        }
+
+
+    }
+//
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+////        super.onNewIntent(intent);
+////        this.setIntent(intent);
+//        int noti = intent.getIntExtra("noti",0);
+//        Log.d("HomeActivity", "onCreateView: " + noti);
+//        if (noti == 111111) {
+//            Log.d("HomeActivity", "onCreateView: Noti");
+//
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    ChatFragment chatFragment = new ChatFragment();
+                    chatFragment = ChatFragment.getInstance();
                     return chatFragment;
                 case 1:
                     ControlBoardFragment controlBoardFragment = new ControlBoardFragment();

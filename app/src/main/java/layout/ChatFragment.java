@@ -27,11 +27,13 @@ import com.home.smart.thuans.homeassistance.chat.ChatMessage;
 import java.util.ArrayList;
 
 public class ChatFragment extends Fragment {
+    private static ChatFragment instance = null;
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private Button buttonSend;
     private ListView listView;
     private ChatArrayAdapter chatArrayAdapter;
     private EditText chatText;
+    private int Flag = 0;
     private boolean side;
     private String demoBotMsg[] = new String[]{
         "Thưa anh đã 5 giờ 45 phút anh có muốn chuyển chế độ chuẩn bị buổi tối không ạ",
@@ -46,14 +48,35 @@ public class ChatFragment extends Fragment {
         "Dự đoán khách: cậu Văng"
     };
 
+    public static ChatFragment getInstance() {
+        if (instance == null) {
+            instance = new ChatFragment();
+        }
+        return instance;
+    }
+
+    public void setFlag(int flag) {
+        Flag = flag;
+    }
+
+
+
     private int botMsgCount = -1;
+    private int noti = -1;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_chat,container,false);
-        if (savedInstanceState != null){
-            botMsgCount = savedInstanceState.getInt("botMsgCount");
+        if (getArguments() != null) {
+
+            Log.d("------------", "onCreateView:" + getArguments().getSerializable("notiClick"));
         }
+        if (savedInstanceState != null) {
+            botMsgCount = savedInstanceState.getInt("botMsgCount");
+
+        }
+
+
 
         buttonSend = (Button) rootView.findViewById(R.id.btnChatSend);
 
@@ -99,6 +122,9 @@ public class ChatFragment extends Fragment {
 
         return rootView;
     }
+
+
+
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -142,4 +168,16 @@ public class ChatFragment extends Fragment {
         side = !side;
         return true;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+//        Log.d("------------", "Res:" + getArguments().getSerializable("notiClick"));
+
+        if (Flag == 111111) {
+            promptSpeechInput();
+            this.setFlag(0);
+        }
+    }
+
 }
