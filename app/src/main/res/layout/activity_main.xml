@@ -4,61 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.home.smart.thuans.homeassistance.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="56dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    tools:context="com.home.smart.thuans.homeassistance.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/username"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="..." />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Tên đăng nhập">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="134dp"
+    </TextView>
+        <EditText android:id="@+id/username"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textSize="18sp" />
+            android:inputType="text"
+            android:hint="admin" />
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Mật khẩu"></TextView>
+        <EditText android:id="@+id/password"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="..." />
-    </LinearLayout>
+            android:inputType="textPassword"
+            android:hint="******"/>
 
     <Button
         android:id="@+id/btnEnterSetup"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Bắt đầu"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="261dp" />
-
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="12dp"
+        android:text="Login"/>
 </LinearLayout>

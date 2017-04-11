@@ -7,8 +7,8 @@
     tools:context="com.home.smart.thuans.homeassistance.setup.SetupThird">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -29,7 +29,7 @@
             android:id="@+id/lstDevice"
             android:layout_width="match_parent"
             android:layout_height="265dp"
-            android:layout_weight="0.47" />
+            android:layout_weight="0.84" />
 
         <LinearLayout
             android:layout_width="match_parent"
