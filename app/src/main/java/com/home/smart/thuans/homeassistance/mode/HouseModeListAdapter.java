@@ -37,12 +37,11 @@ import java.util.List;
 public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
     private static final String TAG = "HouseModeListAdapter";
     private TextView modeName;
-    private ImageView modeIcon;
     private List<HouseModeModel> modeList = new ArrayList<HouseModeModel>();
     private Activity context;
     private View rowView;
     private ListView lw;
-    private Switch sw;
+//    private Switch sw;
 
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
@@ -90,36 +89,34 @@ public class HouseModeListAdapter extends ArrayAdapter<HouseModeModel> {
             rowView = vi.inflate(R.layout.house_mode_list, null);
         }
         modeName = (TextView) rowView.findViewById(R.id.modeName);
-        modeIcon = (ImageView) rowView.findViewById(R.id.modeIcon);
-        Button btnEdit = (Button)rowView.findViewById(R.id.btnEditMode);
-        sw = (Switch) rowView.findViewById(R.id.swtModeOn);
+//        Button btnEdit = (Button)rowView.findViewById(R.id.btnEditMode);
+//        sw = (Switch) rowView.findViewById(R.id.swtModeOn);
 
         modeName.setText(modeList.get(position).getName());
-        modeIcon.setImageResource(modeList.get(position).getIcon());
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
+//        btnEdit.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View arg0) {
+//                EditModeDialog emDialog = new EditModeDialog(context, modeList, position, rowView, lw);
+//                emDialog.show();
+//            }
+//        });
 
-            @Override
-            public void onClick(View arg0) {
-                EditModeDialog emDialog = new EditModeDialog(context, modeList, position, rowView, lw);
-                emDialog.show();
-            }
-        });
-
-        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                FragmentActivity activity = (FragmentActivity) HouseModeListAdapter.this.getContext();
-                if (isChecked) {
-                    new SlideDateTimePicker.Builder(activity.getSupportFragmentManager())
-                            .setListener(listener)
-                            .setInitialDate(new Date())
-                            .build()
-                            .show();
-                }
-
-            }
-        });
+//        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                FragmentActivity activity = (FragmentActivity) HouseModeListAdapter.this.getContext();
+//                if (isChecked) {
+//                    new SlideDateTimePicker.Builder(activity.getSupportFragmentManager())
+//                            .setListener(listener)
+//                            .setInitialDate(new Date())
+//                            .build()
+//                            .show();
+//                }
+//
+//            }
+//        });
 
 
         return rowView;

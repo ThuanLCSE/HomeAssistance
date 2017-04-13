@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,7 @@ public class ControlBoardFragment extends Fragment {
     private List<SensorModel> sensorModelList;
     private List<HouseStatusModel> statusList;
     private ListView listStatus;
-    private ListView listSensor;
+    private RecyclerView listSensor;
 
     @Nullable
     @Override
@@ -49,9 +51,13 @@ public class ControlBoardFragment extends Fragment {
         HouseStatusModel hsm = new HouseStatusModel("Nhiệt độ phòng khách", "25'C");
         HouseStatusModel hsm1 = new HouseStatusModel("Nhiệt độ phòng ngủ", "20'C");
         HouseStatusModel hsm2 = new HouseStatusModel("Máy lạnh", "bật");
+        HouseStatusModel hsm3 = new HouseStatusModel("Nhiệt độ nhà ăn", "20'C");
+        HouseStatusModel hsm4 = new HouseStatusModel("Tivi ", "bật");
         statusList.add(hsm);
         statusList.add(hsm1);
         statusList.add(hsm2);
+        statusList.add(hsm3);
+        statusList.add(hsm4);
 
         listStatus = (ListView) rootView.findViewById(R.id.lstHouseStatus);
 
@@ -68,11 +74,13 @@ public class ControlBoardFragment extends Fragment {
         sensorModelList.add(sm1);
         sensorModelList.add(sm2);
 
-        listSensor = (ListView)rootView.findViewById(R.id.lstSensorStatus);
-
-
-        SensorListAdapter sensorAdapter = new SensorListAdapter(this.getContext(), R.layout.sensor_list , sensorModelList);
+        listSensor = (RecyclerView)rootView.findViewById(R.id.lstSensorStatus);
+        listSensor.setHasFixedSize(true);
+        LinearLayoutManager MyLayoutManager = new LinearLayoutManager(getActivity());
+        MyLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        SensorListAdapter sensorAdapter = new SensorListAdapter(sensorModelList);
         listSensor.setAdapter(sensorAdapter);
+        listSensor.setLayoutManager(MyLayoutManager);
 
         final RequestQueue queue = HouseControlCenter.getInstance(this.getContext()).
                 getRequestQueue();
@@ -109,7 +117,7 @@ public class ControlBoardFragment extends Fragment {
         String[] data = dataResponse.split(split);
 
         sensorModelList.get(0).setValue("đóng");
-        SensorListAdapter sensorAdapter = new SensorListAdapter(this.getContext(), R.layout.sensor_list , sensorModelList);
+        SensorListAdapter sensorAdapter = new SensorListAdapter(sensorModelList);
         listSensor.setAdapter(sensorAdapter);
     }
 }

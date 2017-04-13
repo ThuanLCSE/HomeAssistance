@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import com.home.smart.thuans.homeassistance.R;
@@ -68,9 +69,9 @@ public class HouseModeFragment extends Fragment {
 
 
 
-        ListView listMode= (ListView) rootView.findViewById(R.id.lstHouseMode);
+        GridView  listMode = (GridView) rootView.findViewById(R.id.lstHouseMode);
         HouseModeListAdapter adapter = new HouseModeListAdapter(this.getActivity(), R.layout.house_mode_list, housemodeList);
-        adapter.setListView(listMode);
+//        adapter.setListView(listMode);
         listMode.setAdapter(adapter);
 
         ListView listScheduleMode = (ListView) rootView.findViewById(R.id.lstScheduleMode);

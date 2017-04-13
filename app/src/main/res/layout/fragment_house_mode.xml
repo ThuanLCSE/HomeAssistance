@@ -12,10 +12,13 @@
         android:layout_height="238dp"
         android:layout_weight="0.35" />
 
-    <ListView
+    <GridView
         android:id="@+id/lstHouseMode"
         android:layout_width="wrap_content"
-        android:layout_height="188dp" />
+        android:layout_height="188dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:numColumns="3" />
 
     <Button
         android:id="@+id/btnCreate"
