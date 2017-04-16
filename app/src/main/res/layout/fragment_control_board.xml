@@ -17,23 +17,30 @@
             android:layout_weight="0.10"
             android:text="Cập nhật trạng thái" />
 
-        <ListView
+
+        <GridView
             android:id="@+id/lstHouseStatus"
             android:layout_width="match_parent"
-            android:layout_height="270dp" />
+            android:layout_height="200dp"
+            android:horizontalSpacing="2dp"
+            android:numColumns="3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:verticalSpacing="2dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bảng điều khiển tay"
-            android:textColor="@android:color/background_dark"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextSetup"
             android:textSize="18sp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lstSensorStatus"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.99" />
+            android:layout_height="131dp"
+            android:layout_margin="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

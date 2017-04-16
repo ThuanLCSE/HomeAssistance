@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.home.smart.thuans.homeassistance.setup.SetupThird">
+    tools:context="com.home.smart.thuans.homeassistance.setup.SetupThird"
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingTop="10dp"
+        android:paddingTop="30dp"
         android:weightSum="1"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
@@ -22,28 +23,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_device_list"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp" />
+            android:textColor="@color/colorTextSetup"
+            android:textSize="20sp" />
 
         <ListView
             android:id="@+id/lstDevice"
             android:layout_width="match_parent"
-            android:layout_height="265dp"
-            android:layout_weight="0.84" />
+            android:layout_height="258dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/boderleftlayout"
+            android:layout_weight="0.04" />
 
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnSetup3Done"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tiếp" />
-        </LinearLayout>
-
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:background="#ffffff"
+                android:scaleType="fitCenter"
+                android:src="@drawable/buttondone"
+                android:text="Next"
+                android:layout_marginRight="27dp"
+                android:layout_marginEnd="27dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="14dp" />
+        </RelativeLayout>
     </LinearLayout>
 
 

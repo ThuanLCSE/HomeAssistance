@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.android.volley.Request;
@@ -36,7 +37,7 @@ public class ControlBoardFragment extends Fragment {
     private TextView responseText;
     private List<SensorModel> sensorModelList;
     private List<HouseStatusModel> statusList;
-    private ListView listStatus;
+    private GridView listStatus;
     private RecyclerView listSensor;
 
     @Nullable
@@ -59,7 +60,7 @@ public class ControlBoardFragment extends Fragment {
         statusList.add(hsm3);
         statusList.add(hsm4);
 
-        listStatus = (ListView) rootView.findViewById(R.id.lstHouseStatus);
+        listStatus = (GridView) rootView.findViewById(R.id.lstHouseStatus);
 
         HouseStatusListAdapter houstStatusAdapter = new HouseStatusListAdapter(this.getContext(), R.layout.house_status_list , statusList);
         listStatus.setAdapter(houstStatusAdapter);

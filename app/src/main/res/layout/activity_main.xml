@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Tên đăng nhập">
+        android:text="Tên đăng nhập"
+        android:textColor="@color/colorTextSetup">
 
     </TextView>
         <EditText android:id="@+id/username"
@@ -31,7 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Mật khẩu"></TextView>
+        android:text="Mật khẩu"
+        android:textColor="@color/colorTextSetup">
+    </TextView>
         <EditText android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,5 +48,6 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:padding="12dp"
-        android:text="Login"/>
+        android:text="Login"
+        android:background="@drawable/buttonboder"/>
 </LinearLayout>

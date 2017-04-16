@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">HomeAssistance</string>
-    <string name="setup_bot_name">Xin chào tôi là người giúp việc nhà bạn. Bạn muốn gọi tôi bằng tên gì? (Tiếng việt có dấu)</string>
+    <string name="app_name">Nhà Tiện Nghi</string>
+    <string name="setup_bot_name">Xin chào tôi là người giúp việc nhà bạn. Bạn muốn gọi tôi bằng tên gì?</string>
+    <string name="setup_hint">(Tiếng việt có dấu)</string>
     <string name="setup_bot_name_listen">Nghe thử nhé</string>
-    <string name="setup_bot_type">...và bạn muốn tôi đóng vai trò là...</string>
+    <string name="setup_bot_type">Và bạn muốn tôi đóng vai trò là...</string>
     <string name="setup_owner_name">xin cho tôi biết tên bạn</string>
-    <string name="set_up_owner_role">...bạn muốn tôi gọi bạn là...</string>
-    <string name="set_up_bot_role">...vậy tôi sẽ xưng là  ...</string>
+    <string name="set_up_owner_role">Bạn muốn tôi gọi bạn là...</string>
+    <string name="set_up_bot_role">Vậy tôi sẽ xưng là  ...</string>
     <string name="title_device_list">Danh sách thiết bị nhà anh</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="action_settings">Settings</string>

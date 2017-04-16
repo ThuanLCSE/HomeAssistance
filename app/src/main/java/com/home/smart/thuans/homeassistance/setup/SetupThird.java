@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.home.smart.thuans.homeassistance.HomeActivity;
@@ -76,7 +77,7 @@ public class SetupThird extends AppCompatActivity {
 //        RenameFragment renameFragment = new RenameFragment();
 //        fragmentTransaction.replace(android.R.id.content, renameFragment);
 
-        Button btnDone = (Button) findViewById(R.id.btnSetup3Done);
+        ImageButton btnDone = (ImageButton) findViewById(R.id.btnSetup3Done);
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

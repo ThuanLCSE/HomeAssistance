@@ -155,9 +155,9 @@ public class HomeActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Mi Mi";
+                    return "Giúp việc";
                 case 1:
-                    return "Ngôi nhà";
+                    return "Công tắc";
                 case 2:
                     return "Chế độ";
             }

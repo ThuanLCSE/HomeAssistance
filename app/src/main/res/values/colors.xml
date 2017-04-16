@@ -3,4 +3,8 @@
     <color name="colorPrimary">#20a95a</color>
     <color name="colorPrimaryDark">#146938</color>
     <color name="colorAccent">#0b4824</color>
+    <color name="colorTextSetup">#2c644a</color>
+    <color name="colorTextHint">#51a27e</color>
+    <color name="colorIcon">#278e60</color>
+    <color name="valueStatusHouse">#27ae60</color>
 </resources>

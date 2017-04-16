@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.home.smart.thuans.homeassistance.R;
 
@@ -16,7 +17,7 @@ public class SetupSecond extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_second);
-        Button btnDone = (Button) findViewById(R.id.btnSetup2Done);
+        ImageButton btnDone = (ImageButton) findViewById(R.id.btnSetup2Done);
 
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,13 +8,15 @@
         android:id="@+id/modeName"
         android:layout_width="110dp"
         android:layout_height="80dp"
-        android:background="#27ae60"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bodertopleftright"
+        android:gravity="center_vertical"
+        android:text="aaaaa"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="20sp" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -26,8 +28,8 @@
         android:layout_alignRight="@+id/modeName"
         android:layout_below="@+id/modeName"
         android:layout_weight="1"
-        android:background="@drawable/buttonboder"
-        app:srcCompat="@drawable/trashicon" />
+        app:srcCompat="@drawable/trashicon"
+        android:background="@drawable/boderbottomleftright"/>
 
 
     <!--<Button-->

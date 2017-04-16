@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
     android:layout_height="wrap_content"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/bodersensor"
+    android:orientation="vertical"
     android:paddingTop="5dp"
     android:weightSum="1">
 
     <ImageView
         android:id="@+id/sensorIcon"
-        android:layout_width="60dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/modeName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_toRightOf="@+id/sensorIcon"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:paddingTop="5dp"
+        android:text="aaaaa"
+        android:textColor="@color/colorTextSetup"
+        android:textAlignment="center"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/sensorValue"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_alignBottom="@+id/sensorIcon"
-        android:layout_alignLeft="@+id/modeName"
-        android:layout_alignStart="@+id/modeName"
-        android:layout_below="@+id/modeName"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_weight="0.24"
         android:paddingTop="5dp"
-        android:textColor="@android:color/darker_gray" />
+        android:text="bbbbbb"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextSetup" />
 
-    <Switch
-        android:id="@+id/swtModeOn"
-        android:layout_width="63dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.28"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/sensorIcon"
-        android:layout_alignLeft="@+id/sensorIcon"
-        android:layout_alignStart="@+id/sensorIcon"
-        android:layout_marginLeft="35dp"
-        android:layout_marginStart="35dp" />
+    <!--<Switch-->
+    <!--android:id="@+id/swtModeOn"-->
+    <!--android:layout_width="63dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="0.28"-->
+    <!--android:layout_marginTop="11dp"-->
+    <!--android:layout_below="@+id/sensorIcon"-->
+    <!--android:layout_alignLeft="@+id/sensorIcon"-->
+    <!--android:layout_alignStart="@+id/sensorIcon"-->
+    <!--android:layout_marginLeft="35dp"-->
+    <!--android:layout_marginStart="35dp" />-->
 
-</RelativeLayout>
+</LinearLayout>
